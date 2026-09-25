@@ -11,16 +11,16 @@
       "link_mode": "web",
       "revision": "dba7cb195e86bf871db905698c90191c970ae3d8"
     },
-    "viewBox": [1560, 820]
+    "viewBox": [1370, 820]
   },
   "components": [
     {
       "id": "actores",
       "type": "external",
       "label": "Actores",
-      "sublabel": "Cliente · Seller · Administrador",
-      "pos": [30, 350],
-      "size": [180, 76],
+      "sublabel": "Cliente · Seller · Admin",
+      "pos": [20, 350],
+      "size": [160, 76],
       "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 5, "label": "Actores humanos" }]
     },
     {
@@ -28,7 +28,7 @@
       "type": "frontend",
       "label": "Aplicación web",
       "sublabel": "Interfaz en navegador",
-      "pos": [270, 350],
+      "pos": [220, 350],
       "size": [170, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 16, "label": "Presentación" }]
     },
@@ -38,7 +38,7 @@
       "label": "API REST",
       "sublabel": "Controladores y validación",
       "tag": "HTTPS / JSON",
-      "pos": [500, 350],
+      "pos": [440, 350],
       "size": [180, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 18, "label": "API REST" }]
     },
@@ -47,7 +47,7 @@
       "type": "security",
       "label": "Usuarios",
       "sublabel": "Identidad · roles · auditoría",
-      "pos": [750, 80],
+      "pos": [680, 80],
       "size": [190, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 23, "label": "Módulo Usuarios" }]
     },
@@ -56,7 +56,7 @@
       "type": "backend",
       "label": "Sellers",
       "sublabel": "Registro y habilitación",
-      "pos": [750, 235],
+      "pos": [680, 235],
       "size": [190, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 24, "label": "Módulo Sellers" }]
     },
@@ -65,7 +65,7 @@
       "type": "backend",
       "label": "Catálogo",
       "sublabel": "Productos · stock · reservas",
-      "pos": [750, 390],
+      "pos": [680, 390],
       "size": [190, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 25, "label": "Módulo Catálogo" }]
     },
@@ -74,7 +74,7 @@
       "type": "backend",
       "label": "Carrito",
       "sublabel": "Líneas y cantidades",
-      "pos": [750, 545],
+      "pos": [680, 545],
       "size": [190, 76],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 26, "label": "Módulo Carrito" }]
     },
@@ -84,8 +84,8 @@
       "label": "Pedidos",
       "sublabel": "Compra · pago · entregas",
       "tag": "orquestación",
-      "pos": [1010, 350],
-      "size": [190, 82],
+      "pos": [930, 350],
+      "size": [180, 82],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 27, "label": "Módulo Pedidos" }]
     },
     {
@@ -93,8 +93,8 @@
       "type": "database",
       "label": "Base de datos",
       "sublabel": "Estado y transacciones locales",
-      "pos": [1260, 350],
-      "size": [190, 82],
+      "pos": [1150, 350],
+      "size": [170, 82],
       "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 38, "label": "Persistencia" }]
     },
     {
@@ -102,8 +102,8 @@
       "type": "external",
       "label": "Pasarela de pago",
       "sublabel": "Cobro y notificaciones",
-      "pos": [1010, 80],
-      "size": [190, 76],
+      "pos": [930, 80],
+      "size": [180, 76],
       "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 10, "label": "Actor externo" }]
     },
     {
@@ -111,8 +111,8 @@
       "type": "external",
       "label": "Envío y facturación",
       "sublabel": "Entregas · comprobantes",
-      "pos": [1260, 80],
-      "size": [200, 76],
+      "pos": [1150, 80],
+      "size": [170, 76],
       "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 11, "end_line": 12, "label": "Servicios externos" }]
     },
     {
@@ -120,8 +120,8 @@
       "type": "external",
       "label": "ERP del seller",
       "sublabel": "Productos y stock versionado",
-      "pos": [1260, 590],
-      "size": [200, 76],
+      "pos": [1150, 590],
+      "size": [170, 76],
       "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 13, "label": "ERP" }]
     }
   ],
@@ -131,7 +131,7 @@
     { "kind": "region", "label": "3. Datos", "wraps": ["bd"], "pad": 28 }
   ],
   "connections": [
-    { "id": "actores-web", "from": "actores", "to": "web", "label": "interactúan", "variant": "emphasis" },
+    { "id": "actores-web", "from": "actores", "to": "web", "variant": "emphasis" },
     { "id": "web-api", "from": "web", "to": "api", "variant": "emphasis" },
     { "id": "api-usuarios", "from": "api", "to": "usuarios", "label": "autentica y autoriza", "variant": "security" },
     { "id": "api-sellers", "from": "api", "to": "sellers" },
@@ -139,10 +139,9 @@
     { "id": "api-carrito", "from": "api", "to": "carrito" },
     { "id": "api-pedidos", "from": "api", "to": "pedidos", "variant": "emphasis" },
     { "id": "carrito-catalogo", "from": "carrito", "to": "catalogo", "label": "consulta productos" },
-    { "id": "pedidos-sellers", "from": "pedidos", "to": "sellers", "label": "valida seller" },
-    { "id": "pedidos-catalogo", "from": "pedidos", "to": "catalogo", "label": "reserva stock" },
-    { "id": "pedidos-bd", "from": "pedidos", "to": "bd", "label": "transacción local", "variant": "emphasis", "labelAt": [1225, 455] },
-    { "id": "catalogo-bd", "from": "catalogo", "to": "bd", "fromSide": "bottom", "toSide": "bottom", "via": [[845, 700], [1355, 700]] },
+    { "id": "pedidos-sellers", "from": "pedidos", "to": "sellers", "label": "valida seller", "labelAt": [900, 325] },
+    { "id": "pedidos-catalogo", "from": "pedidos", "to": "catalogo", "label": "reserva stock", "labelAt": [1020, 480] },
+    { "id": "pedidos-bd", "from": "pedidos", "to": "bd", "label": "transacción local", "variant": "emphasis", "labelAt": [1140, 455] },
     { "id": "pedidos-pago", "from": "pedidos", "to": "pago", "label": "pago idempotente", "variant": "dashed" },
     { "id": "pedidos-logistica", "from": "pedidos", "to": "logistica", "label": "envío y comprobante", "variant": "dashed" },
     { "id": "catalogo-erp", "from": "catalogo", "to": "erp", "label": "sincroniza stock", "variant": "dashed" }
