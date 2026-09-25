@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Marketplace de productos para mascotas",
+    "output": "marketplace-arquitectura.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/ademir-tec/Marketplace-arquitSoft-02-alvaro",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "dba7cb195e86bf871db905698c90191c970ae3d8"
+    },
+    "viewBox": [1560, 820]
+  },
+  "components": [
+    {
+      "id": "actores",
+      "type": "external",
+      "label": "Actores",
+      "sublabel": "Cliente · Seller · Administrador",
+      "pos": [30, 350],
+      "size": [180, 76],
+      "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 5, "label": "Actores humanos" }]
+    },
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "Aplicación web",
+      "sublabel": "Interfaz en navegador",
+      "pos": [270, 350],
+      "size": [170, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 16, "label": "Presentación" }]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "API REST",
+      "sublabel": "Controladores y validación",
+      "tag": "HTTPS / JSON",
+      "pos": [500, 350],
+      "size": [180, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 18, "label": "API REST" }]
+    },
+    {
+      "id": "usuarios",
+      "type": "security",
+      "label": "Usuarios",
+      "sublabel": "Identidad · roles · auditoría",
+      "pos": [750, 80],
+      "size": [190, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 23, "label": "Módulo Usuarios" }]
+    },
+    {
+      "id": "sellers",
+      "type": "backend",
+      "label": "Sellers",
+      "sublabel": "Registro y habilitación",
+      "pos": [750, 235],
+      "size": [190, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 24, "label": "Módulo Sellers" }]
+    },
+    {
+      "id": "catalogo",
+      "type": "backend",
+      "label": "Catálogo",
+      "sublabel": "Productos · stock · reservas",
+      "pos": [750, 390],
+      "size": [190, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 25, "label": "Módulo Catálogo" }]
+    },
+    {
+      "id": "carrito",
+      "type": "backend",
+      "label": "Carrito",
+      "sublabel": "Líneas y cantidades",
+      "pos": [750, 545],
+      "size": [190, 76],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 26, "label": "Módulo Carrito" }]
+    },
+    {
+      "id": "pedidos",
+      "type": "backend",
+      "label": "Pedidos",
+      "sublabel": "Compra · pago · entregas",
+      "tag": "orquestación",
+      "pos": [1010, 350],
+      "size": [190, 82],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 27, "label": "Módulo Pedidos" }]
+    },
+    {
+      "id": "bd",
+      "type": "database",
+      "label": "Base de datos",
+      "sublabel": "Estado y transacciones locales",
+      "pos": [1260, 350],
+      "size": [190, 82],
+      "sources": [{ "path": "arquitectura/arquitectura-inicial.md", "line": 38, "label": "Persistencia" }]
+    },
+    {
+      "id": "pago",
+      "type": "external",
+      "label": "Pasarela de pago",
+      "sublabel": "Cobro y notificaciones",
+      "pos": [1010, 80],
+      "size": [190, 76],
+      "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 10, "label": "Actor externo" }]
+    },
+    {
+      "id": "logistica",
+      "type": "external",
+      "label": "Envío y facturación",
+      "sublabel": "Entregas · comprobantes",
+      "pos": [1260, 80],
+      "size": [200, 76],
+      "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 11, "end_line": 12, "label": "Servicios externos" }]
+    },
+    {
+      "id": "erp",
+      "type": "external",
+      "label": "ERP del seller",
+      "sublabel": "Productos y stock versionado",
+      "pos": [1260, 590],
+      "size": [200, 76],
+      "sources": [{ "path": "analisis-de-sistema/01-actores.md", "line": 13, "label": "ERP" }]
+    }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "1. Presentación", "wraps": ["web", "api"], "pad": 28 },
+    { "kind": "region", "label": "2. Lógica de negocio", "wraps": ["usuarios", "sellers", "catalogo", "carrito", "pedidos"], "pad": 28 },
+    { "kind": "region", "label": "3. Datos", "wraps": ["bd"], "pad": 28 }
+  ],
+  "connections": [
+    { "id": "actores-web", "from": "actores", "to": "web", "label": "interactúan", "variant": "emphasis" },
+    { "id": "web-api", "from": "web", "to": "api", "variant": "emphasis" },
+    { "id": "api-usuarios", "from": "api", "to": "usuarios", "label": "autentica y autoriza", "variant": "security" },
+    { "id": "api-sellers", "from": "api", "to": "sellers" },
+    { "id": "api-catalogo", "from": "api", "to": "catalogo" },
+    { "id": "api-carrito", "from": "api", "to": "carrito" },
+    { "id": "api-pedidos", "from": "api", "to": "pedidos", "variant": "emphasis" },
+    { "id": "carrito-catalogo", "from": "carrito", "to": "catalogo", "label": "consulta productos" },
+    { "id": "pedidos-sellers", "from": "pedidos", "to": "sellers", "label": "valida seller" },
+    { "id": "pedidos-catalogo", "from": "pedidos", "to": "catalogo", "label": "reserva stock" },
+    { "id": "pedidos-bd", "from": "pedidos", "to": "bd", "label": "transacción local", "variant": "emphasis", "labelAt": [1225, 455] },
+    { "id": "catalogo-bd", "from": "catalogo", "to": "bd", "fromSide": "bottom", "toSide": "bottom", "via": [[845, 700], [1355, 700]] },
+    { "id": "pedidos-pago", "from": "pedidos", "to": "pago", "label": "pago idempotente", "variant": "dashed" },
+    { "id": "pedidos-logistica", "from": "pedidos", "to": "logistica", "label": "envío y comprobante", "variant": "dashed" },
+    { "id": "catalogo-erp", "from": "catalogo", "to": "erp", "label": "sincroniza stock", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Camino principal",
+      "items": ["Actores → Web → API REST → módulos", "Pedidos coordina compra y persistencia"]
+    },
+    {
+      "dot": "emerald",
+      "title": "Consistencia",
+      "items": ["Pedido y reservas usan transacción local", "Stock nunca debe quedar negativo"]
+    },
+    {
+      "dot": "rose",
+      "title": "Integraciones",
+      "items": ["Pago, envío, facturación y ERP quedan aislados por adaptadores", "Los resultados externos se verifican e idempotizan"]
+    }
+  ]
+}

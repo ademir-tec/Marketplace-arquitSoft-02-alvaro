@@ -2,7 +2,7 @@
 
 ## Integrante
 
-Álvaro (completar apellidos antes de la entrega).
+Alvaro Ademir Ayala Arango.
 
 ## Descripción
 
@@ -19,7 +19,7 @@ GoPet se utiliza como referencia funcional indicada por la guía: <https://www.g
 - Arquitectura de Software, IS-488
 - Docente: Ing. Lizbeth Jaico Quispe
 - Semestre: 2026-II
-- Laboratorios: 02, 04 y 05
+- Laboratorios: 02
 
 ## Comprensión del negocio — ejercicio 02
 
