@@ -2,7 +2,7 @@
 
 ## Integrante
 
-Alvaro Ademir Ayala Arango.
+**Nombre completo:** Alvaro Ademir Ayala Arango
 
 ## Descripción
 
