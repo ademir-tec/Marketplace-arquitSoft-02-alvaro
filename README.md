@@ -72,11 +72,11 @@ Se conserva la estructura de la imagen del ejercicio 01 (página 6). La guía al
 | 07. Restricciones | [Restricciones y decisiones](analisis-de-sistema/05-restricciones.md) |
 | 08. Drivers arquitectónicos | [Drivers y consecuencias](analisis-de-sistema/06-driver-arquitectonicos.md) |
 | 09. Arquitectura en capas | [Responsabilidades por capa](arquitectura/arquitectura-inicial.md#responsabilidades-por-capa) |
-| 10. Diagrama final | [Diagrama Mermaid](arquitectura/arquitectura-inicial.md#diagrama-de-arquitectura) y [visualización interactiva Archify](arquitectura/marketplace-arquitectura.html) |
+| 10. Diagrama final | [Vista gráfica en GitHub](arquitectura/marketplace-arquitectura.png), [diagrama Mermaid](arquitectura/arquitectura-inicial.md#diagrama-de-arquitectura) y [HTML interactivo para descargar](arquitectura/marketplace-arquitectura.html) |
 
 ## Cómo revisar y versionar
 
-Leer los documentos de análisis en orden y después la arquitectura. GitHub representa el bloque Mermaid al abrir el Markdown; en VS Code puede utilizarse la extensión **Markdown Preview Mermaid Support**, indicada en la guía. El archivo HTML de Archify puede descargarse y abrirse en un navegador para explorar el diagrama, cambiar el tema, buscar componentes y exportar una imagen.
+Leer los documentos de análisis en orden y después la arquitectura. GitHub muestra directamente la vista PNG y representa el bloque Mermaid al abrir el Markdown. En VS Code puede utilizarse la extensión **Markdown Preview Mermaid Support**, indicada en la guía. GitHub muestra el código fuente de los archivos HTML por seguridad; para explorar la versión Archify se debe descargar `marketplace-arquitectura.html` y abrirlo en un navegador.
 
 Los siguientes comandos son una referencia para registrar y publicar la entrega una vez revisada; su presencia no significa que ya se hayan ejecutado:
 

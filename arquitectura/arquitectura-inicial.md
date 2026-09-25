@@ -8,6 +8,14 @@ La base de datos relacional es una decisión propuesta. No se selecciona lenguaj
 
 ## Diagrama de arquitectura
 
+### Vista gráfica para GitHub
+
+[![Arquitectura en tres capas del marketplace](marketplace-arquitectura.png)](marketplace-arquitectura.png)
+
+La imagen anterior se muestra directamente en GitHub. La versión [interactiva de Archify](marketplace-arquitectura.html) debe descargarse y abrirse en un navegador, ya que GitHub muestra los archivos HTML como código fuente.
+
+### Diagrama editable en Mermaid
+
 ```mermaid
 flowchart TB
     subgraph ACTORES["Actores humanos"]
