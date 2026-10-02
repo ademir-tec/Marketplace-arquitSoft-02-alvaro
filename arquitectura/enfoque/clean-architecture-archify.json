@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Clean Architecture del marketplace",
+    "output": "clean-architecture-marketplace.html",
+    "quality_profile": "showcase",
+    "viewBox": [1100, 550],
+    "views": [
+      {
+        "id": "flujo-principal",
+        "label": "Flujo principal",
+        "focus": ["usuario", "presentacion", "aplicacion", "dominio"],
+        "note": "La interacción entra por Presentación y llega a las reglas del Dominio mediante casos de uso."
+      },
+      {
+        "id": "inversion-dependencias",
+        "label": "Inversión de dependencias",
+        "focus": ["aplicacion", "contratos", "adaptadores"],
+        "note": "Aplicación usa contratos internos; Infraestructura aporta implementaciones reemplazables."
+      },
+      {
+        "id": "integraciones",
+        "label": "Integraciones externas",
+        "focus": ["adaptadores", "persistencia", "api-externa", "pasarela"],
+        "note": "Los detalles técnicos permanecen fuera del núcleo de negocio."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "usuario",
+      "type": "external",
+      "label": "Usuario",
+      "sublabel": "Cliente, seller o administrador",
+      "pos": [40, 180],
+      "size": [150, 70]
+    },
+    {
+      "id": "presentacion",
+      "type": "frontend",
+      "label": "Presentación",
+      "sublabel": "Componentes Angular",
+      "pos": [250, 180],
+      "size": [160, 70]
+    },
+    {
+      "id": "aplicacion",
+      "type": "backend",
+      "label": "Aplicación",
+      "sublabel": "Casos de uso",
+      "pos": [490, 180],
+      "size": [160, 70]
+    },
+    {
+      "id": "dominio",
+      "type": "backend",
+      "label": "Dominio",
+      "sublabel": "Entidades y reglas",
+      "tag": "NÚCLEO",
+      "pos": [730, 180],
+      "size": [160, 70]
+    },
+    {
+      "id": "composicion",
+      "type": "backend",
+      "label": "Raíz de composición",
+      "sublabel": "app.config.ts",
+      "pos": [490, 30],
+      "size": [160, 70]
+    },
+    {
+      "id": "contratos",
+      "type": "security",
+      "label": "Contratos",
+      "sublabel": "Puertos definidos en Dominio",
+      "pos": [730, 320],
+      "size": [160, 70]
+    },
+    {
+      "id": "adaptadores",
+      "type": "backend",
+      "label": "Infraestructura",
+      "sublabel": "Adaptadores reemplazables",
+      "pos": [490, 320],
+      "size": [160, 70]
+    },
+    {
+      "id": "persistencia",
+      "type": "database",
+      "label": "Persistencia",
+      "sublabel": "Memoria o base de datos",
+      "pos": [250, 460],
+      "size": [160, 70]
+    },
+    {
+      "id": "api-externa",
+      "type": "external",
+      "label": "API externa",
+      "sublabel": "Catálogo y notificaciones",
+      "pos": [490, 460],
+      "size": [160, 70]
+    },
+    {
+      "id": "pasarela",
+      "type": "external",
+      "label": "Pasarela de pago",
+      "sublabel": "Proveedor reemplazable",
+      "pos": [730, 460],
+      "size": [160, 70]
+    }
+  ],
+  "connections": [
+    {
+      "id": "usuario-presentacion",
+      "from": "usuario",
+      "to": "presentacion",
+      "label": "interacción",
+      "variant": "emphasis"
+    },
+    {
+      "id": "presentacion-aplicacion",
+      "from": "presentacion",
+      "to": "aplicacion",
+      "label": "invoca casos de uso",
+      "labelAt": [450, 264],
+      "variant": "emphasis"
+    },
+    {
+      "id": "aplicacion-dominio",
+      "from": "aplicacion",
+      "to": "dominio",
+      "label": "aplica reglas",
+      "variant": "emphasis"
+    },
+    {
+      "id": "aplicacion-contratos",
+      "from": "aplicacion",
+      "to": "contratos",
+      "label": "usa puertos"
+    },
+    {
+      "id": "adaptadores-contratos",
+      "from": "adaptadores",
+      "to": "contratos",
+      "label": "implementa puertos",
+      "labelAt": [570, 300]
+    },
+    {
+      "id": "adaptadores-persistencia",
+      "from": "adaptadores",
+      "to": "persistencia",
+      "label": "lee y guarda"
+    },
+    {
+      "id": "adaptadores-api",
+      "from": "adaptadores",
+      "to": "api-externa",
+      "label": "HTTP / JSON",
+      "labelAt": [570, 426]
+    },
+    {
+      "id": "adaptadores-pasarela",
+      "from": "adaptadores",
+      "to": "pasarela",
+      "label": "cobra y consulta"
+    }
+  ]
+}
