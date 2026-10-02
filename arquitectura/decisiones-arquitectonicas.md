@@ -1,6 +1,6 @@
 # Decisiones arquitectónicas
 
-## Resumen solicitado en la Guía 03
+## Resumen solicitado
 
 | ADR | Decisión | Drivers asociados | Resultado esperado |
 |---|---|---|---|
